@@ -1,14 +1,6 @@
-import { buttonInc, buttonDec } from './button';
-import { info } from './info';
-import { fieldAdd } from './todo';
-import { list } from './list';
+import ReactDOM from 'react-dom';
 
-[
-  buttonDec,
-  buttonInc,
-  info,
-  fieldAdd,
-  list
-]
-  .forEach(el => document.body.appendChild(el) && document.body.insertAdjacentHTML('beforeend', '<br><br>'));
+import { App } from './app.component';
+
+ReactDOM.render(<App />, document.getElementById('app'));
 

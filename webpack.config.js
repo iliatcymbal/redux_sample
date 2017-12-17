@@ -4,13 +4,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    vendor: ['redux'],
+    vendor: ['redux', 'react', 'react-dom'],
     main: './app'
   },
   context: path.resolve(__dirname, 'src'),
   output: {
     path: __dirname + '/dist',
     filename: '[name].js'
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: { presets: ['env', 'react'] }
+        }
+      }
+    ]
   },
 
   devtool: 'inline-source-map',
@@ -22,7 +35,12 @@ module.exports = {
 
     new webpack.HotModuleReplacementPlugin(),
 
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' })
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
+
+    new webpack.ProvidePlugin({
+      React: 'react',
+      Component: ['react', 'Component']
+    })
   ],
 
   devServer: {
