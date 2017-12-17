@@ -1,6 +1,14 @@
 import { buttonInc, buttonDec } from './button';
 import { info } from './info';
+import { fieldAdd } from './todo';
+import { list } from './list';
 
-document.body.appendChild(buttonDec);
-document.body.appendChild(buttonInc);
-document.body.appendChild(info);
+[
+  buttonDec,
+  buttonInc,
+  info,
+  fieldAdd,
+  list
+]
+  .forEach(el => document.body.appendChild(el) && document.body.insertAdjacentHTML('beforeend', '<br><br>'));
+

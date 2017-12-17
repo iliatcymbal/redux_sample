@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 // it is typical reducer
 // action should be an object with next pattern:
@@ -16,8 +16,25 @@ const date = (state = new Date().getFullYear(), action) => {
   return state;
 };
 
-export const store = createStore(
+const todo = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_TASK': {
+      const newState = [...state, action.task];
+      return newState;
+    }
+  }
+
+  return state;
+};
+
+
+const reducers = combineReducers({
   date,
+  todo
+});
+
+export const store = createStore(
+  reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 // second argument is used to add redux dev tool (should be pre-installed in browser)

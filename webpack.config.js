@@ -3,17 +3,25 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './app.js',
+  entry: {
+    vendor: ['redux'],
+    main: './app'
+  },
   output: {
     path: __dirname + '/dist',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
+
+  devtool: 'inline-source-map',
 
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
+
+    new webpack.HotModuleReplacementPlugin(),
+
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' })
   ],
 
   devServer: {
