@@ -7,6 +7,7 @@ module.exports = {
     vendor: ['redux'],
     main: './app'
   },
+  context: path.resolve(__dirname, 'src'),
   output: {
     path: __dirname + '/dist',
     filename: '[name].js'
