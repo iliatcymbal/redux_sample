@@ -1,15 +1,16 @@
 import { createStore, combineReducers } from 'redux';
+import { INCREASE_YEAR, DECREASE_YEAR, ADD_TASK } from './actions';
 
 // it is typical reducer
 // action should be an object with next pattern:
 // { type: 'ACTION_NAME', payload?: any_js_value }
 const date = (state = new Date().getFullYear(), action) => {
   switch (action.type) {
-    case 'INCREASE_YEAR': {
+    case INCREASE_YEAR: {
       return state + 1;
     }
 
-    case 'DECREASE_YEAR':
+    case DECREASE_YEAR:
       return state - 1;
   }
 
@@ -18,7 +19,7 @@ const date = (state = new Date().getFullYear(), action) => {
 
 const todo = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_TASK': {
+    case ADD_TASK: {
       const newState = [...state, action.task];
       return newState;
     }
