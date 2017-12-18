@@ -1,6 +1,10 @@
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
+import { store } from './store';
 import { App } from './app.component';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const Container = <Provider store={store}><App /></Provider>;
+
+ReactDOM.render(Container, document.getElementById('app'));
 
