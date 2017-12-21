@@ -1,12 +1,6 @@
-import { decYear, incYear } from './actions';
-
 export const Buttons = ({ update }) => {
   const click = (add) => {
-    if (add) {
-      update(incYear());
-    } else {
-      update(decYear());
-    }
+    update(add);
   };
 
   return (
