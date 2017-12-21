@@ -8,10 +8,15 @@ import { ListTodo } from './ListTodo';
 export const AppComponent = (props) => (
   <React.Fragment>
     <Buttons update={props.dispatch}/>
-    <InfoYear />
+    <InfoYear date={props.date}/>
     <AddTodo update={props.dispatch}/>
-    <ListTodo />
+    <ListTodo todo={props.todo}/>
   </React.Fragment>
 );
 
-export const App = connect()(AppComponent);
+const mapStateToProps = state => ({
+  todo: state.todo,
+  date: state.date
+});
+
+export const App = connect(mapStateToProps)(AppComponent);
