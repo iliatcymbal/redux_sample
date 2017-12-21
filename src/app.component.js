@@ -7,9 +7,9 @@ import { ListTodo } from './ListTodo';
 
 export const AppComponent = (props) => (
   <React.Fragment>
-    <Buttons />
+    <Buttons update={props.dispatch}/>
     <InfoYear />
-    <AddTodo />
+    <AddTodo update={props.dispatch}/>
     <ListTodo />
   </React.Fragment>
 );

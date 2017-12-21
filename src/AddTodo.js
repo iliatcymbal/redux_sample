@@ -1,10 +1,9 @@
-import { store } from './store';
 import { addTodo } from './actions';
 
-export const AddTodo = () => {
+export const AddTodo = ({ update }) => {
   const addTask = (event) => {
     if (event.keyCode === 13) {
-      store.dispatch(addTodo(event.target.value));
+      update(addTodo(event.target.value));
       event.target.value = '';
     }
   };

@@ -1,12 +1,11 @@
-import { store } from './store';
 import { decYear, incYear } from './actions';
 
-export const Buttons = () => {
+export const Buttons = ({ update }) => {
   const click = (add) => {
     if (add) {
-      store.dispatch(incYear());
+      update(incYear());
     } else {
-      store.dispatch(decYear());
+      update(decYear());
     }
   };
 
