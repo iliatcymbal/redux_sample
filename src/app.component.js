@@ -4,7 +4,7 @@ import { Buttons } from './Buttons';
 import { InfoYear } from './InfoYear';
 import { AddTodo } from './AddTodo';
 import { ListTodo } from './ListTodo';
-import { AddTodoAsyncComponent } from './AddTodoAsync';
+import { AddTodoAsync } from './AddTodoAsync';
 
 import { decYear, incYear, addTodo, addTodoAll } from './actions';
 
@@ -13,7 +13,7 @@ export const AppComponent = (props) => (
     <Buttons update={props.updateDate}/>
     <InfoYear date={props.date}/>
     <AddTodo update={props.updateTodo}/>
-    <AddTodoAsyncComponent update={props.updateTodoAsync} />
+    <AddTodoAsync update={props.updateTodoAsync} />
     <ListTodo todo={props.todo}/>
   </React.Fragment>
 );

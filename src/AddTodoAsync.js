@@ -1,8 +1,6 @@
-export const AddTodoAsyncComponent = ({ update }) => {
-  return (
-    <p>
-      <button onClick={() => update()}>Get todos</button>
-    </p>
-  );
-};
+export const AddTodoAsync = ({ update }) => (
+  <p>
+    <button onClick={update}>Get todos</button>
+  </p>
+);
 
