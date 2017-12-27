@@ -1,4 +1,4 @@
-import { INCREASE_YEAR, DECREASE_YEAR, ADD_TASK } from './actions';
+import { INCREASE_YEAR, DECREASE_YEAR, ADD_TASK, ADD_TASK_ALL } from './actions';
 
 // it is typical reducer
 // action should be an object with next pattern:
@@ -21,6 +21,9 @@ export const todo = (state = [], action) => {
     case ADD_TASK: {
       const newState = [...state, action.task];
       return newState;
+    }
+    case ADD_TASK_ALL: {
+      return action.tasks;
     }
   }
 
