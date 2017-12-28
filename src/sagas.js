@@ -1,3 +1,3 @@
 export function* testSaga() {
-  console.log('Hello Sagas!')
+  console.log('Hello Sagas!');
 }
