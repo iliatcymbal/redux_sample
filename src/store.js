@@ -1,10 +1,16 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import * as reducers from './reducers';
+import { testSaga } from './sagas'
+
+const sagaMiddleware = createSagaMiddleware();
 
 const rootReducers = combineReducers(reducers);
 
 export const store = createStore(
   rootReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  applyMiddleware(sagaMiddleware)
+  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-// second argument is used to add redux dev tool (should be pre-installed in browser)
+
+sagaMiddleware.run(testSaga);

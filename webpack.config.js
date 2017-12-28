@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    vendor: ['redux', 'react', 'react-dom'],
+    vendor: ['redux', 'react', 'react-dom', 'babel-polyfill'],
     main: './app'
   },
   context: path.resolve(__dirname, 'src'),
@@ -20,7 +20,10 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: { presets: ['env', 'react'] }
+          options: {
+            presets: ['env', 'react', 'stage-0'],
+            plugins: ['transform-regenerator']
+          }
         }
       }
     ]
