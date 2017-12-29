@@ -1,5 +1,5 @@
-export const AsyncButtons = ({ update }) => (
-  <React.Fragment>
-    <button onClick={update}>Increase year async</button>
-  </React.Fragment>
+export const AsyncButtons = ({ updateYear }) => (
+  <p>
+    <button onClick={updateYear}>Increase year async</button>&nbsp;&nbsp;
+  </p>
 );

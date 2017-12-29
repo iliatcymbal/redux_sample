@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import * as reducers from './reducers';
-import { watchIncrementDataAsync } from './sagas'
+import { watchIncrementDataAsync, watchTasksAsync } from './sagas'
 
 // we use compose function for advanced creation of middlewares
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -18,4 +18,4 @@ export const store = createStore(
 );
 
 // run sagas
-sagaMiddleware.run(watchIncrementDataAsync);
+sagaMiddleware.run(watchTasksAsync);

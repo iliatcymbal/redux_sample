@@ -11,3 +11,6 @@ export const addTodo = task => ({ type: ADD_TASK, task });
 
 export const ADD_TASK_ALL = 'Add all tasks';
 export const addTodoAll = tasks => ({ type: ADD_TASK_ALL, tasks });
+
+export const GET_TASK_ALL_ASYNC = 'Add all tasks async';
+export const getTodoAllAsync = tasks => ({ type: GET_TASK_ALL_ASYNC });

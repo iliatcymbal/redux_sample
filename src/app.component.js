@@ -7,15 +7,15 @@ import { ListTodo } from './ListTodo';
 import { AddTodoAsync } from './AddTodoAsync';
 import { AsyncButtons } from "./AsyncButtons";
 
-import { decYear, incYear, addTodo, addTodoAll, incYearAsync } from './actions';
+import { decYear, incYear, addTodo, addTodoAll, incYearAsync, getTodoAllAsync } from './actions';
 
 export const AppComponent = (props) => (
   <React.Fragment>
     <Buttons update={props.updateDate} />
-    <AsyncButtons update={props.incYearAsync} />
+    <AsyncButtons updateYear={props.incYearAsync} />
     <InfoYear date={props.date} />
     <AddTodo update={props.updateTodo} />
-    <AddTodoAsync update={props.updateTodoAsync} />
+    <AddTodoAsync update={props.getTodoAllAsync} />
     <ListTodo todo={props.todo} />
   </React.Fragment>
 );
@@ -42,6 +42,10 @@ const mapDispatchToProps = dispatch => ({
 
   incYearAsync() {
     dispatch(incYearAsync());
+  },
+
+  getTodoAllAsync() {
+    dispatch(getTodoAllAsync());
   }
 });
 
