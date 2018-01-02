@@ -1,7 +1,7 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, all } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 
-import { incYear, INCREASE_YEAR_ASYNC, addTodoAll, GET_TASK_ALL_ASYNC } from './actions'
+import { incYear, INCREASE_YEAR_ASYNC, addTodoAll, GET_TASK_ALL_ASYNC } from './actions';
 
 export function* incrementDataAsync() {
   // delay is a promised setTimeout
@@ -24,4 +24,11 @@ export function* updateTasks() {
 
 export function* watchTasksAsync() {
   yield takeEvery(GET_TASK_ALL_ASYNC, updateTasks)
+}
+
+export function* rootSaga() {
+  yield all([
+    watchIncrementDataAsync(),
+    watchTasksAsync()
+  ]);
 }
